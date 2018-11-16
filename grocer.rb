@@ -12,12 +12,13 @@ def consolidate_cart(cart)
 end
 
 def apply_coupons(cart, coupons)
-  hash = cart 
+  con_cart = consolidate_cart(cart)
+  hash = consolidate_cart(cart) 
   coupons.each do |coupon|
     coupon.each do |key, value|
-      if (cart.keys).include?(value)
+      if (con_cart.keys).include?(value)
         hash[value + "W/COUPON"] = {price: coupon[:cost], clearance: true, count: (coupon[:num])/(cart[value][:count])}
-        hash[value] = {
+        hash[value] = {price: cart[value][:price], clearance: cart[value][:clearance], count: (coupon[:num])%(cart[value][:count])}
       
 end
 

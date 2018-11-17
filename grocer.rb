@@ -36,6 +36,7 @@ def apply_clearance(cart)
       hash[name][:price] = cart[name][:price] * 0.80
     end
   end
+  hash
 end
 
 def checkout(cart, coupons)

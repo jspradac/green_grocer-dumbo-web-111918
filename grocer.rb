@@ -17,7 +17,7 @@ def apply_coupons(cart, coupons)
   coupons.each do |coupon|
     coupon.each do |key, value|
       if (con_cart.keys).include?(value)
-        hash[value + " W/COUPON"] = {price: coupon[:cost], clearance: con_cart[value][:clearance], count: (coupon[:num])/(con_cart[value][:count])}
+        hash[value + " W/COUPON"] = {price: coupon[:cost], clearance: con_cart[value][:clearance], count: (con_cart[value][:count])/(coupon[:num])}
         hash[value] = {price: con_cart[value][:price], clearance: con_cart[value][:clearance], count: (con_cart[value][:count])%(coupon[:num])}
       end 
     end 

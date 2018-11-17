@@ -13,7 +13,7 @@ end
 
 def apply_coupons(cart, coupons)
   con_cart = consolidate_cart(cart)
-  hash = consolidate_cart(cart) 
+  hash = cart
   coupons.each do |coupon|
     coupon.each do |key, value|
       if (con_cart.keys).include?(value)
